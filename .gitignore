@@ -65,3 +65,5 @@ dist
 #files
 *.tgz
 *.log
+
+.DS_STORE
