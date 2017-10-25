@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {withStyles} from 'material-ui'
 import Paper from 'material-ui/Paper'
 import DocumentActions from '../../Actions/DocumentActions'
+import Body from './Body'
 require('./Title');
 require('./Margins');
 
@@ -52,7 +53,7 @@ class Document extends Component{
 		return (
 			<Paper className={classes.root} elevation={4}>
 				<div className={classes.margins} style={style}>
-					Test
+					<Body />
 				</div>
 			</Paper>
 		);

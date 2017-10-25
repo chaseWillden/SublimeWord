@@ -4,6 +4,7 @@ import {grey} from 'material-ui/colors'
 import Document from './Document'
 import CommandPallette from './CommandPallette'
 import Alert from './Alert'
+import Ruler from './Ruler'
 import DocumentActions from '../Actions/DocumentActions'
 import TopMenu from './TopMenu'
 
@@ -24,6 +25,7 @@ const Window = props => {
 		<div className={props.classes.root}>
 			<CommandPallette />
 			<TopMenu />
+			<Ruler />
 			<Document />
 			<Alert />
 		</div>

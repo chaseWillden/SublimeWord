@@ -1,9 +1,14 @@
 import Dispatcher from './Dispatcher'
-import {SET_TITLE, SET_MARGIN} from './Constants'
+import {
+	SET_TITLE, 
+	SET_MARGIN, 
+	SET_DOCUMENT_WIDTH,
+	SET_DOCUMENT
+} from './Constants'
 
 let _defaultMargins = {
-	left: 51,
-	right: 51,
+	left: 96,
+	right: 96,
 	top: 96,
 	bottom: 96
 }
@@ -11,11 +16,18 @@ let _defaultMargins = {
 let _document = {
 	title: '*Untitled Document',
 	margins: {
-		left: 51,
-		right: 51,
+		left: 96,
+		right: 96,
 		top: 96,
 		bottom: 96
-	}
+	},
+	width: 816,
+	doc: [
+		{
+			format: 'title',
+			text: 'This is a test'
+		}
+	]
 };
 
 class DocumentActions{
@@ -42,6 +54,21 @@ class DocumentActions{
 	static resetMargins(){
 		_document.margins = Object.assign({}, _defaultMargins);
 		Dispatcher.Set(SET_MARGIN, _defaultMargins);
+	}
+
+	static getWidth(callback){
+		Dispatcher.Listen(SET_DOCUMENT_WIDTH, callback);
+		callback(_document.width);
+	}
+
+	static setDocument(doc){
+		_document.doc = doc;
+		Dispatcher.Set(SET_DOCUMENT, doc);
+	}
+
+	static getDocument(callback){
+		Dispatcher.Listen(SET_DOCUMENT, callback);
+		callback(_document.doc);
 	}
 }
 

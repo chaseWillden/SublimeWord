@@ -15,7 +15,8 @@ const styles = theme => ({
 		top: 0,
 		left: 0,
 		right: 0,
-		bottom: 0
+		bottom: 0,
+		zIndex: 999
 	},
 	paper: {
 		width: 500,
@@ -68,7 +69,7 @@ class CommandPallette extends Component{
 	state = {
 		input: '',
 		results: GetActions(),
-		show: true,
+		show: false,
 		selected: 0
 	}
 
@@ -117,7 +118,7 @@ class CommandPallette extends Component{
 		return (
 			<div className={classes.root} onClick={e => this.setState({show: false})}>	
 				<Paper elevation={15} className={classes.paper} onClick={e => e.stopPropagation()}>
-					<input type='text' className={classes.input} autoFocus value={input} onChange={this.handle.bind(this)} placeholder='cmd+shift+p' onKeyUp={this.changeSelected.bind(this)} />
+					<input type='text' className={classes.input} autoFocus value={input} onChange={this.handle.bind(this)} placeholder='cmd+shift+P' onKeyUp={this.changeSelected.bind(this)} />
 					<Results classes={classes} items={results} selected={selected} onSelect={this.onSelect.bind(this)} />
 				</Paper>
 			</div>	
