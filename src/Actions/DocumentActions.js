@@ -38,6 +38,31 @@ let _document = {
 		{
 			format: 'Paragraph',
 			text: 'like React, Electron, and other libraries.'
+		},
+		{
+			format: 'LineBreak',
+			text: '\n'
+		},
+		{
+			format: 'Paragraph',
+			text: [
+				{
+					format: 'Paragraph',
+					text: 'Just like any word processor, Sublime Word can format '
+				}, 
+				{
+					format: 'Custom',
+					text: 'text inline',
+					style: {
+						textDecoration: 'underline',
+						fontWeight: 'bold'
+					}
+				},
+				{
+					format: 'Paragraph',
+					text: ' and go back to normal'
+				}
+			]
 		}
 	]
 };

@@ -6,6 +6,12 @@ import {
 let _defaultFormats = {
 	'Title': {
 		fontSize: '32pt'
+	},
+	'Paragraph': {
+
+	},
+	'LineBreak': {
+		
 	}
 }
 
