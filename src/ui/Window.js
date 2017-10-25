@@ -5,13 +5,15 @@ import Document from './Document'
 import CommandPallette from './CommandPallette'
 import Alert from './Alert'
 import DocumentActions from '../Actions/DocumentActions'
+import TopMenu from './TopMenu'
 
 const style = theme => ({
 	root: {
 		backgroundColor: grey[300],
 		width: '100%',
 		color: 'white',
-		display: 'inline-block'
+		display: 'inline-block',
+		paddingBottom: 70
 	}
 })
 
@@ -21,6 +23,7 @@ const Window = props => {
 	return (
 		<div className={props.classes.root}>
 			<CommandPallette />
+			<TopMenu />
 			<Document />
 			<Alert />
 		</div>

@@ -44,7 +44,7 @@ const styles = theme => ({
 	selected: {
 		backgroundColor: grey[300]
 	}
-})
+});
 
 const Results = props => {
 	const {classes, items, selected, onSelect} = props;

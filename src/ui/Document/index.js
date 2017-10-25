@@ -10,13 +10,12 @@ const styles = theme => ({
 		width: 816,
 		height: 1056,
 		margin: '0 auto',
-		marginTop: 50,
+		marginTop: -50,
 		color: 'black',
 		display: 'flex'
 	},
 	margins: {
-		width: '100%',
-		height: '100%'
+		width: '100%'
 	}
 });
 

@@ -19,6 +19,10 @@ class ChangeTitle extends Component{
 		value: _title
 	}
 
+	componentDidMount(){
+		if (this.ele) this.ele.focus();
+	}
+
 	render(){
 		return (
 			<form onSubmit={submit}>
@@ -31,6 +35,7 @@ class ChangeTitle extends Component{
 					}}
 					style={{minWidth: 400}}
 					autoFocus
+					inputRef={ele => this.ele = ele}
 				/>
 			</form>
 		);	
@@ -41,10 +46,12 @@ const Btn = props => (
 	<Button onClick={submit} color="primary">Save</Button>
 )
 
-RegisterActions('Change the title of the document', () => {
+export const ChangeTitleDialog = () => {
 	AlertActions.showAlert(
 		'Rename the document', 
 		<ChangeTitle />, 
 		<Btn />
 	);
-});
+}
+
+RegisterActions('Change the title of the document', ChangeTitleDialog);
