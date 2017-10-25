@@ -11,8 +11,20 @@ import {ChangeTitleDialog} from '../Document/Title'
 const styles = theme => ({
 	root: {
 		backgroundColor: lightBlue[800],
-		height: 200,
-		padding: '10px 15px'
+		height: 116,
+		padding: '10px 20px',
+		margin: -16,
+		position: 'fixed',
+		width: '100%',
+		zIndex: 11
+	},
+	bar: {
+		backgroundColor: lightBlue[800],
+		height: 133,
+		zIndex: 1,
+		width: '100%',
+		position: 'fixed',
+		marginTop: 116
 	},
 	title: {
 		color: 'white',
@@ -48,15 +60,20 @@ class TopMenu extends Component{
 		const {title} = this.state;
 
 		return (
-			<Grid container className={classes.root}>
-				<Grid item md={8}>
-					<Typography type="subheading" className={classes.title} onClick={ChangeTitleDialog}>{title}</Typography>
-					<IconButton className={classes.saveButton} aria-label="Save">
-		        <SaveIcon className={classes.saveIcon} />
-		      </IconButton>
-		      <small className={classes.saveText}>All changes have been saved</small>
-				</Grid>
-			</Grid>
+			<div>
+				<div className={classes.bar} />
+				<div className={classes.root}>
+					<Grid container>
+						<Grid item md={8}>
+							<Typography type="subheading" className={classes.title} onClick={ChangeTitleDialog}>{title}</Typography>
+							<IconButton className={classes.saveButton} aria-label="Save">
+				        <SaveIcon className={classes.saveIcon} />
+				      </IconButton>
+				      <small className={classes.saveText}>All changes have been saved</small>
+						</Grid>
+					</Grid>
+				</div>
+			</div>
 		);
 	}
 }

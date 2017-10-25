@@ -9,10 +9,10 @@ const mist = 'rgba(255, 255, 255, .7)'
 const styles = theme => ({
 	ruler: {
 		margin: '0 auto',
-		marginTop: -70,
-		position: 'absolute',
+		marginTop: 100,
+		position: 'fixed',
 		left: '50%',
-		zIndex: 1
+		zIndex: 12,
 	},
 	tick: {
 		borderLeft: 'solid 1px ' + mist,
@@ -30,6 +30,15 @@ const styles = theme => ({
 			width: 15,
 			color: mist
 		}
+	},
+	shadow: {
+		margin: '0 auto',
+		marginTop: 100,
+		position: 'fixed',
+		left: '50%',
+		zIndex: 12,
+		boxShadow: '0px 4px 11px 0px rgba(0,0,0,.8)',
+		height: 3
 	}
 });
 
@@ -50,8 +59,13 @@ class Ruler extends Component{
 		const {width} = this.state;
 		const style = {
 			width: width,
-			marginLeft: -((width / 2)) + 5
+			marginLeft: -((width / 2)) + 10
 		};
+		const shadow = {
+			width: width + 10,
+			marginLeft: -((width / 2)) - 5,
+			// borderBottom: 'solid 3px black'
+		}
 
 		const ticks = Math.ceil(width / EIGTH);
 		let tickEles = [];
@@ -63,9 +77,12 @@ class Ruler extends Component{
 		}
 
 		return (
-			<div className={classes.ruler} style={Object.assign({marginTop: 0}, style)}>
-				<div className={classes.ruler + ' first-tick'} style={style}>
-					{tickEles}
+			<div>
+				<div className={classes.shadow} style={Object.assign({marginTop: 116}, shadow)} />
+				<div className={classes.ruler} style={Object.assign({marginTop: 0}, style)}>
+					<div className={classes.ruler + ' first-tick'} style={style}>
+						{tickEles}
+					</div>
 				</div>
 			</div>
 		)

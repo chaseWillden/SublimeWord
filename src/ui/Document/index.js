@@ -11,9 +11,11 @@ const styles = theme => ({
 		width: 816,
 		height: 1056,
 		margin: '0 auto',
-		marginTop: -50,
+		marginTop: 120,
 		color: 'black',
-		display: 'flex'
+		display: 'flex',
+		position: 'relative',
+		zIndex: 10
 	},
 	margins: {
 		width: '100%'
