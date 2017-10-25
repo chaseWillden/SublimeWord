@@ -23,9 +23,21 @@ let _document = {
 	},
 	width: 816,
 	doc: [
+		{ // each top level element is a row
+			format: 'Title',
+			text: 'Sublime Word'
+		},
 		{
-			format: 'title',
-			text: 'This is a test'
+			format: 'Paragraph',
+			text: 'Sublime text is a new, smooth and modern word processor designed by programmers for '
+		},
+		{
+			format: 'Paragraph',
+			text: 'programmers. The rendering engine is  built from the ground up using modern technologies'
+		},
+		{
+			format: 'Paragraph',
+			text: 'like React, Electron, and other libraries.'
 		}
 	]
 };
