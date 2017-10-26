@@ -14,3 +14,6 @@ like React, Electron, and other libraries.
 
 # Resources
 [Design Inspiration](https://www.behance.net/gallery/34788595/Google-Docs-Material-Design-Concept)
+
+# Todo Items
+ - [ ] Develop the text selection method

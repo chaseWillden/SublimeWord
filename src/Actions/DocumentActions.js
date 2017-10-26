@@ -25,30 +25,36 @@ let _document = {
 	doc: [
 		{ // each top level element is a row
 			format: 'Title',
-			text: 'Sublime Word'
+			text: 'Sublime Word',
+			id: 1
 		},
 		{
 			format: 'Paragraph',
-			text: 'Sublime text is a new, smooth and modern word processor designed by programmers for '
+			text: 'Sublime text is a new, smooth and modern word processor designed by programmers for ',
+			id: 2
 		},
 		{
 			format: 'Paragraph',
-			text: 'programmers. The rendering engine is  built from the ground up using modern technologies'
+			text: 'programmers. The rendering engine is  built from the ground up using modern technologies',
+			id: 3
 		},
 		{
 			format: 'Paragraph',
-			text: 'like React, Electron, and other libraries.'
+			text: 'like React, Electron, and other libraries.',
+			id: 4
 		},
 		{
 			format: 'LineBreak',
-			text: '\n'
+			text: '\n',
+			id: 5
 		},
 		{
 			format: 'Paragraph',
 			text: [
 				{
 					format: 'Paragraph',
-					text: 'Just like any word processor, Sublime Word can format '
+					text: 'Just like any word processor, Sublime Word can format ',
+					id: 7
 				}, 
 				{
 					format: 'Custom',
@@ -56,13 +62,16 @@ let _document = {
 					style: {
 						textDecoration: 'underline',
 						fontWeight: 'bold'
-					}
+					},
+					id: 8
 				},
 				{
 					format: 'Paragraph',
-					text: ' and go back to normal'
+					text: ' and go back to normal',
+					id: 9
 				}
-			]
+			],
+			id: 6
 		}
 	]
 };

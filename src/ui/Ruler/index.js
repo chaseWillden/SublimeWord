@@ -9,7 +9,7 @@ const mist = 'rgba(255, 255, 255, .7)'
 const styles = theme => ({
 	ruler: {
 		margin: '0 auto',
-		marginTop: 100,
+		marginTop: 120,
 		position: 'fixed',
 		left: '50%',
 		zIndex: 12,
@@ -33,7 +33,7 @@ const styles = theme => ({
 	},
 	shadow: {
 		margin: '0 auto',
-		marginTop: 100,
+		marginTop: 135,
 		position: 'fixed',
 		left: '50%',
 		zIndex: 12,
@@ -78,7 +78,7 @@ class Ruler extends Component{
 
 		return (
 			<div>
-				<div className={classes.shadow} style={Object.assign({marginTop: 116}, shadow)} />
+				<div className={classes.shadow} style={Object.assign({marginTop: 135}, shadow)} />
 				<div className={classes.ruler} style={Object.assign({marginTop: 0}, style)}>
 					<div className={classes.ruler + ' first-tick'} style={style}>
 						{tickEles}

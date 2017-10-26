@@ -12,7 +12,7 @@ const styles = theme => ({
 	root: {
 		backgroundColor: lightBlue[800],
 		height: 116,
-		padding: '10px 20px',
+		padding: '20px 30px',
 		margin: -16,
 		position: 'fixed',
 		width: '100%',
