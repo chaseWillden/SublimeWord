@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {withStyles} from 'material-ui';
 import InputActions from '../../Actions/InputActions'
+import {Keys} from '../CommandPallette/Actions'
 
 const styles = theme => ({
 	root: {
@@ -26,6 +27,7 @@ class Input extends Component{
 			this.ele.focus();
 			this.setState({ignore: ignore})
 		});
+		InputActions.getClearInput(() => this.setState({value: ''}));
 	}
 
 	handleChange(e){
@@ -38,6 +40,12 @@ class Input extends Component{
 		e.target.focus();
 	}
 
+	isEnter(e){
+		if (e.keyCode === Keys.ENTER){
+			InputActions.enterPressed();
+		}
+	}
+
 	render(){
 		const {classes} = this.props;
 		return (
@@ -46,6 +54,7 @@ class Input extends Component{
 				value={this.state.value} 
 				onChange={this.handleChange.bind(this)} 
 				className={classes.root} 
+				onKeyUp={this.isEnter.bind(this)}
 				autoFocus
 				ref={ele => this.ele = ele}
 				onBlur={this.focus.bind(this)} // always on autoFocus

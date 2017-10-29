@@ -28,7 +28,15 @@ class Body extends Component{
 				"format": "Paragraph",
 				"text": input
 			})	
-		})
+		});
+
+		InputActions.getEnterPressed(() => {
+			InputActions.clearInput();
+			BodyActions.appendToBody({
+				format: 'Paragraph',
+				text: ''
+			});
+		});
 	}
 
 	render(){

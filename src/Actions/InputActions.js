@@ -1,7 +1,9 @@
 import Dispatcher from './Dispatcher'
 import {
 	SET_INPUT,
-	SHOULD_IGNORE_INPUT
+	SHOULD_IGNORE_INPUT,
+	ENTER_PRESSED,
+	CLEAR_INPUT
 } from './Constants'
 
 let _input = ''
@@ -19,6 +21,14 @@ class InputActions {
 		callback(_input);
 	}
 
+	static clearInput(){
+		Dispatcher.Set(CLEAR_INPUT, true);
+	}
+
+	static getClearInput(callback){
+		Dispatcher.Listen(CLEAR_INPUT, callback)
+	}
+
 	static shouldIgnore(val){
 		_ignore = val;
 		Dispatcher.Set(SHOULD_IGNORE_INPUT, val);
@@ -27,6 +37,14 @@ class InputActions {
 	static getShouldIgnore(callback){
 		Dispatcher.Listen(SHOULD_IGNORE_INPUT, callback);
 		callback(_ignore);
+	}
+
+	static enterPressed(){
+		Dispatcher.Set(ENTER_PRESSED, true);
+	}
+
+	static getEnterPressed(callback){
+		Dispatcher.Listen(ENTER_PRESSED, callback);
 	}
 }
 

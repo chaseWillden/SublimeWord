@@ -8,3 +8,5 @@ export const SET_DOCUMENT_WIDTH = 'SET_DOCUMENT_WIDTH';
 export const SET_BODY = 'SET_BODY';
 export const SET_INPUT = 'SET_INPUT';
 export const SHOULD_IGNORE_INPUT = 'SHOULD_IGNORE_INPUT'
+export const ENTER_PRESSED = 'ENTER_PRESSED';
+export const CLEAR_INPUT = 'CLEAR_INPUT'
