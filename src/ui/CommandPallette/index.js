@@ -8,6 +8,7 @@ import List, {
   ListItemText,
 } from 'material-ui/List';
 import {FindActions, GetActions, Keys} from './Actions'
+import InputActions from '../../Actions/InputActions'
 
 const styles = theme => ({
 	root: {
@@ -78,6 +79,7 @@ class CommandPallette extends Component{
 	}
 
 	toggle(){
+		InputActions.shouldIgnore(!this.state.show);
 		this.setState({show: !this.state.show, input: '', results: GetActions(), selected: 0});
 	}
 

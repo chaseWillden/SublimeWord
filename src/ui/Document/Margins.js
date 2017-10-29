@@ -4,13 +4,17 @@ import DocumentActions from '../../Actions/DocumentActions'
 import React, {Component} from 'react'
 import TextField from 'material-ui/TextField'
 import Button from 'material-ui/Button'
+import {PixelToInch, InchToPixel} from '../../Common/Conversion'
 
 let _position = null;
 let _value = '';
+let _margins = {};
+
+DocumentActions.getMargins(margins => _margins = margins);
 
 const submit = (e) => {
 	e.preventDefault();
-	DocumentActions.setMargin(_position, parseInt(_value, 10));
+	DocumentActions.setMargin(_position, InchToPixel(_value));
 	AlertActions.showAlert(null);
 }
 
@@ -20,6 +24,11 @@ class Margins extends Component{
 		value: _value
 	}
 
+	componentWillMount(){
+		const pos = this.props.position.toLowerCase();
+		this.setState({value: PixelToInch(_margins[pos])});
+	}
+
 	render(){
 		const {position} = this.props;
 		_position = position;
@@ -27,7 +36,7 @@ class Margins extends Component{
 		return (
 			<form onSubmit={submit}>
 				<TextField 
-					label={`Margin ${position}`}
+					label={`Margin ${position} in Inches`}
 					value={this.state.value}
 					onChange={e => {
 						this.setState({value: e.target.value});
@@ -45,15 +54,11 @@ Margins.defaultProps = {
 	position: 'Top'
 }
 
-const Btn = props => (
-	<Button onClick={submit} color="primary">Save</Button>
-)
-
 const ChangeMargin = (position) => {
 	AlertActions.showAlert(
 		'Change the Document\'s ' + position + ' Margin', 
 		<Margins position={position} />, 
-		<Btn />
+		<Button onClick={submit} color="primary">Save</Button>
 	);
 }
 

@@ -2,8 +2,7 @@ import Dispatcher from './Dispatcher'
 import {
 	SET_TITLE, 
 	SET_MARGIN, 
-	SET_DOCUMENT_WIDTH,
-	SET_DOCUMENT
+	SET_DOCUMENT_WIDTH
 } from './Constants'
 
 let _defaultMargins = {
@@ -13,6 +12,7 @@ let _defaultMargins = {
 	bottom: 96
 }
 
+// Defaults
 let _document = {
 	title: '*Untitled Document',
 	margins: {
@@ -21,59 +21,7 @@ let _document = {
 		top: 96,
 		bottom: 96
 	},
-	width: 816,
-	doc: [
-		{ // each top level element is a row
-			format: 'Title',
-			text: 'Sublime Word',
-			id: 1
-		},
-		{
-			format: 'Paragraph',
-			text: 'Sublime text is a new, smooth and modern word processor designed by programmers for ',
-			id: 2
-		},
-		{
-			format: 'Paragraph',
-			text: 'programmers. The rendering engine is  built from the ground up using modern technologies',
-			id: 3
-		},
-		{
-			format: 'Paragraph',
-			text: 'like React, Electron, and other libraries.',
-			id: 4
-		},
-		{
-			format: 'LineBreak',
-			text: '\n',
-			id: 5
-		},
-		{
-			format: 'Paragraph',
-			text: [
-				{
-					format: 'Paragraph',
-					text: 'Just like any word processor, Sublime Word can format ',
-					id: 7
-				}, 
-				{
-					format: 'Custom',
-					text: 'text inline',
-					style: {
-						textDecoration: 'underline',
-						fontWeight: 'bold'
-					},
-					id: 8
-				},
-				{
-					format: 'Paragraph',
-					text: ' and go back to normal',
-					id: 9
-				}
-			],
-			id: 6
-		}
-	]
+	width: 816
 };
 
 class DocumentActions{
@@ -92,6 +40,11 @@ class DocumentActions{
 		Dispatcher.Set(SET_MARGIN, _document.margins);
 	}
 
+	static setMargins(margins){
+		_document.margins = margins;
+		Dispatcher.Set(SET_MARGIN, _document.margins);
+	}
+
 	static getMargins(callback){
 		Dispatcher.Listen(SET_MARGIN, callback);
 		callback(_document.margins);
@@ -105,16 +58,6 @@ class DocumentActions{
 	static getWidth(callback){
 		Dispatcher.Listen(SET_DOCUMENT_WIDTH, callback);
 		callback(_document.width);
-	}
-
-	static setDocument(doc){
-		_document.doc = doc;
-		Dispatcher.Set(SET_DOCUMENT, doc);
-	}
-
-	static getDocument(callback){
-		Dispatcher.Listen(SET_DOCUMENT, callback);
-		callback(_document.doc);
 	}
 }
 

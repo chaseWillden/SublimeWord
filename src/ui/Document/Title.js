@@ -19,6 +19,13 @@ class ChangeTitle extends Component{
 		value: _title
 	}
 
+	componentWillMount(){
+		DocumentActions.getTitle(title => {
+			this.setState({value: title});
+			_title = title;
+		});
+	}
+
 	componentDidMount(){
 		if (this.ele) this.ele.focus();
 	}
@@ -42,15 +49,11 @@ class ChangeTitle extends Component{
 	}
 }
 
-const Btn = props => (
-	<Button onClick={submit} color="primary">Save</Button>
-)
-
 export const ChangeTitleDialog = () => {
 	AlertActions.showAlert(
 		'Rename the document', 
 		<ChangeTitle />, 
-		<Btn />
+		<Button onClick={submit} color="primary">Save</Button>
 	);
 }
 

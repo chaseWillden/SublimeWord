@@ -7,6 +7,7 @@ import Alert from './Alert'
 import Ruler from './Ruler'
 import DocumentActions from '../Actions/DocumentActions'
 import TopMenu from './TopMenu'
+import Input from './Input'
 
 const style = theme => ({
 	root: {
@@ -28,6 +29,7 @@ const Window = props => {
 			<Ruler />
 			<Document />
 			<Alert />
+			<Input />
 		</div>
 	)
 }

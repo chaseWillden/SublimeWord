@@ -5,6 +5,7 @@ import Dialog, {
   DialogTitle,
 } from 'material-ui/Dialog';
 import AlertActions from '../../Actions/AlertActions'
+import InputActions from '../../Actions/InputActions'
 
 class Alert extends Component{
 
@@ -25,27 +26,25 @@ class Alert extends Component{
     actions: ''
   };
 
-  handleClickOpen = () => {
-    this.setState({ open: true });
-  };
-
-  handleRequestClose = () => {
-    this.setState({ open: false });
-  };
+  handleClickOpen = () => this.setState({ open: true });
+  handleRequestClose = () => this.setState({ open: false });
 
 	render(){
+		const {open, title, body, actions} = this.state;
+		InputActions.shouldIgnore(this.state.open); // disable the input
+
 		return (
 			<Dialog
-		    open={this.state.open}
+		    open={open}
 		    keepMounted
 		    onRequestClose={this.handleRequestClose}
 		  >
-		    <DialogTitle>{this.state.title}</DialogTitle>
+		    <DialogTitle>{title}</DialogTitle>
 		    <DialogContent>
-		      {this.state.body}
+		      {body}
 		    </DialogContent>
 		    <DialogActions>
-		      {this.state.actions}
+		      {actions}
 		    </DialogActions>
 		  </Dialog>
 		);
