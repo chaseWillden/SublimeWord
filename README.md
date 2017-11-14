@@ -12,6 +12,9 @@ like React, Electron, and other libraries.
 
 ```yarn start``` - start the electron app
 
+# Usage
+ - cmd+shift+p for command pallette
+
 # Resources
 [Design Inspiration](https://www.behance.net/gallery/34788595/Google-Docs-Material-Design-Concept)
 
