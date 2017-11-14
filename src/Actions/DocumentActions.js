@@ -2,7 +2,8 @@ import Dispatcher from './Dispatcher'
 import {
 	SET_TITLE, 
 	SET_MARGIN, 
-	SET_DOCUMENT_WIDTH
+	SET_DOCUMENT_WIDTH,
+	SET_SAVING_MESSAGE
 } from './Constants'
 
 let _defaultMargins = {
@@ -23,6 +24,8 @@ let _document = {
 	},
 	width: 816
 };
+
+let _savingMessage = ''
 
 class DocumentActions{
 	static setTitle(title){
@@ -58,6 +61,16 @@ class DocumentActions{
 	static getWidth(callback){
 		Dispatcher.Listen(SET_DOCUMENT_WIDTH, callback);
 		callback(_document.width);
+	}
+
+	static getSavingMessage(callback){
+		Dispatcher.Listen(SET_SAVING_MESSAGE, callback);
+		callback(_savingMessage);
+	}
+
+	static setSavingMessage(msg){
+		_savingMessage = msg;
+		Dispatcher.Set(SET_SAVING_MESSAGE, msg);
 	}
 }
 

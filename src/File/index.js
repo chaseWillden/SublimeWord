@@ -11,7 +11,9 @@ let File = {
 
 const setProp = (name, value) => {
 	File[name] = value;
+	DocumentActions.setSavingMessage('Saving...');
 	window.saveFile(cacheName, JSON.stringify(File, null, '  '));
+	DocumentActions.setSavingMessage('All changes have been saved');
 }
 
 // Load the init file
@@ -22,6 +24,7 @@ const LoadFileParts = () => {
 }
 
 // Load the cache
+DocumentActions.setSavingMessage('Loading Document');
 let cache = window.getCache(cacheName);
 if (cache && cache.length > 0){
 	try {
@@ -29,6 +32,7 @@ if (cache && cache.length > 0){
 		LoadFileParts();
 	}
 	catch(e) {}
+	DocumentActions.setSavingMessage('Document Loaded...');
 }
 
 // Listeners for file saves

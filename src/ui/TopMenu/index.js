@@ -48,16 +48,18 @@ const styles = theme => ({
 class TopMenu extends Component{
 
 	state = {
-		title: ''
+		title: '',
+		saveText: ''
 	}
 
 	componentWillMount(){
 		DocumentActions.getTitle(title => this.setState({title: title}));
+		DocumentActions.getSavingMessage(msg => this.setState({saveText: msg}));
 	}
 
 	render(){
 		const {classes} = this.props;
-		const {title} = this.state;
+		const {title, saveText} = this.state;
 
 		return (
 			<div>
@@ -69,7 +71,7 @@ class TopMenu extends Component{
 							<IconButton className={classes.saveButton} aria-label="Save">
 				        <SaveIcon className={classes.saveIcon} />
 				      </IconButton>
-				      <small className={classes.saveText}>All changes have been saved</small>
+				      <small className={classes.saveText}>{saveText}</small>
 						</Grid>
 					</Grid>
 				</div>

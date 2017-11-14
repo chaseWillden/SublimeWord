@@ -1,11 +1,8 @@
-let _registered = {};
-
 let _actions = [{
 	title: 'Help'
 }];
 
 export const RegisterActions = (name, callback) => {
-	_registered[name] = _actions.length;
 	_actions.push({
 		title: name,
 		callback: callback
@@ -13,8 +10,12 @@ export const RegisterActions = (name, callback) => {
 }
 
 export const UnregisterAction = name => {
-	delete _actions[_registered[name]];
-	delete _registered[name];
+	for (let i = 0; i < _actions.length; i++){
+		if (_actions[i].title === name){
+			_actions.splice(i, 1);
+			return;
+		}
+	}
 }
 
 export const GetActions = () => {

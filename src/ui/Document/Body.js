@@ -1,10 +1,12 @@
 import React, {Component} from 'react'
-import DocumentActions from '../../Actions/DocumentActions'
 import FormatActions from '../../Actions/FormatActions'
 import InputActions from '../../Actions/InputActions'
 import BodyActions from '../../Actions/BodyActions'
 import {getFormats} from './Style'
 import Text from './Text'
+import {RegisterActions} from '../CommandPallette/Actions'
+
+RegisterActions('Clear Entire Document Text', () => BodyActions.clearBody());
 
 class Body extends Component{
 

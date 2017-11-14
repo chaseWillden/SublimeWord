@@ -18,6 +18,10 @@ class Alert extends Component{
 			this.setState({open: true, title: obj.title, body: obj.body, actions: obj.actions})
 		});
 	}
+
+	componentWillUpdate(nextProps, nextstate){
+		InputActions.shouldIgnore(nextstate.open); // disable the input
+	}
 	
 	state = {
     open: false,
@@ -31,7 +35,6 @@ class Alert extends Component{
 
 	render(){
 		const {open, title, body, actions} = this.state;
-		InputActions.shouldIgnore(this.state.open); // disable the input
 
 		return (
 			<Dialog

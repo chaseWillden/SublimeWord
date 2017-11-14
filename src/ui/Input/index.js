@@ -22,12 +22,12 @@ class Input extends Component{
 		ignore: false
 	}
 
-	componentDidMount(){
+	componentWillMount(){
+		InputActions.getClearInput(() => this.setState({value: ''}));
 		InputActions.getShouldIgnore(ignore => {
-			this.ele.focus();
+			if (this.ele) this.ele.focus();
 			this.setState({ignore: ignore})
 		});
-		InputActions.getClearInput(() => this.setState({value: ''}));
 	}
 
 	handleChange(e){

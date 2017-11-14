@@ -8,10 +8,13 @@ let _defaultFormats = {
 		fontSize: '32pt'
 	},
 	'Paragraph': {
-
+		display: 'inline-block'
 	},
 	'LineBreak': {
 		
+	},
+	'Inline': {
+		display: 'inline-block'
 	}
 }
 

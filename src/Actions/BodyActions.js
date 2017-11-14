@@ -31,6 +31,16 @@ class BodyActions{
 		_body.push(node);
 		Dispatcher.Set(SET_BODY, _body);
 	}
+
+	static clearBody(){
+		_body = [];
+		Dispatcher.Set(SET_BODY, _body);
+	}
+
+	static getLastBlock(callback){
+		Dispatcher.Listen(SET_BODY, () => callback(_body[_body.length - 1]));
+		callback(_body[_body.length - 1]);
+	}
 }
 
 export default BodyActions
