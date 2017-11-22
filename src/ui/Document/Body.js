@@ -4,6 +4,7 @@ import InputActions from '../../Actions/InputActions'
 import BodyActions from '../../Actions/BodyActions'
 import {getFormats} from './Style'
 import Text from './Text'
+import VerticalBarCursor from './VerticalBarCursor';
 import {RegisterActions} from '../CommandPallette/Actions'
 
 RegisterActions('Clear Entire Document Text', () => BodyActions.clearBody());
@@ -18,18 +19,18 @@ class Body extends Component{
 	componentWillMount(){
 		FormatActions.getFormats(formats => this.setState({formats: formats}));
 		BodyActions.getBody(body => this.setState({body: body}));
-		
+
 		let init = true;
 		InputActions.getInput(input => {
 			if (init){
 				init = false;
 				return;
 			}
-			
+
 			BodyActions.addToLastBody({
 				"format": "Paragraph",
 				"text": input
-			})	
+			})
 		});
 
 		InputActions.getEnterPressed(() => {
@@ -52,7 +53,7 @@ class Body extends Component{
 							{val.text}
 						</Text>
 					</div>
-				))}
+				))}<VerticalBarCursor/>
 			</span>
 		);
 	}
