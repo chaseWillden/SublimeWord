@@ -57,6 +57,9 @@ typings/
 # dotenv environment variables file
 .env
 
+# npm package-lock
+package-lock.json
+
 #directories
 bower_components
 node_modules

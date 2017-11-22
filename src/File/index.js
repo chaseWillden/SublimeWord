@@ -9,6 +9,14 @@ let File = {
 	body: []
 };
 
+window.saveFile = window.saveFile || function(name, contents) {
+	window.localStorage.setItem(name, contents);
+};
+
+window.getCache = window.getCache || function(name) {
+	return window.localStorage.getItem(name);
+};
+
 const setProp = (name, value) => {
 	File[name] = value;
 	DocumentActions.setSavingMessage('Saving...');
