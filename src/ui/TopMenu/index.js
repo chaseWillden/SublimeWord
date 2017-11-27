@@ -67,7 +67,7 @@ class TopMenu extends Component{
 				<div className={classes.root}>
 					<Grid container>
 						<Grid item md={8}>
-							<Typography type="subheading" className={classes.title} onClick={ChangeTitleDialog}>{title}</Typography>
+							<Typography type="subheading" className={classes.title} onClick={ChangeTitleDialog}>{title || '(unamed)'}</Typography>
 							<IconButton className={classes.saveButton} aria-label="Save">
 				        <SaveIcon className={classes.saveIcon} />
 				      </IconButton>
